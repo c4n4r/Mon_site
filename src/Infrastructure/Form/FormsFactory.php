@@ -15,6 +15,7 @@ class FormsFactory implements FormsFactoryInterface
         $className = 'App\Infrastructure\Form\Type\\'.ucfirst($type).'Type';
         $form = $this->factory->create($className,$data);
         return new FormManager($form);
+
     }
 
 }

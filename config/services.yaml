@@ -27,3 +27,7 @@ services:
     app.admin.http.forms.add:
         class: 'App\Action\Admin\Http\Forms\Add'
         arguments: ['FormsFactory', 'AddResponder', 'ResourceManager']
+
+    app.admin.http.forms.update:
+        class: 'App\Action\Admin\Http\Forms\Edit'
+        arguments: [ 'FormsFactory', 'AddResponder', 'ResourceManager', 'FlashMessageManager', 'Router' ]

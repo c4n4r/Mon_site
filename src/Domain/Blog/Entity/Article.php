@@ -6,6 +6,8 @@ use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use App\Domain\Blog\Repository\ArticleRepository;
+use function date;
+use function date_create_from_format;
 
 /**
  * @ORM\Entity(repositoryClass=ArticleRepository::class)
@@ -84,6 +86,10 @@ class Article
         $this->taxonomies = new ArrayCollection();
         $this->userfavorites = new ArrayCollection();
         $this->comments = new ArrayCollection();
+        $this->created_at = date_create_from_format('d-m-Y H:i:s', date('d-m-Y H:i:s'));
+        $this->updated_at = date_create_from_format('d-m-Y H:i:s', date('d-m-Y H:i:s'));
+        $this->views_count = 0;
+
     }
 
     public function getId(): ?int
