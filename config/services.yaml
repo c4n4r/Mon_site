@@ -15,6 +15,9 @@ services:
     # this creates a service per class whose id is the fully-qualified class name
     App\:
         resource: '../src/'
+
+    App\Responder\TwigResponderInterface:
+
     # controllers are imported separately to make sure services can be injected
     # as action arguments even if you don't extend any base controller class
     App\Action\:
@@ -26,8 +29,12 @@ services:
 
     app.admin.http.forms.add:
         class: 'App\Action\Admin\Http\Forms\Add'
-        arguments: ['FormsFactory', 'AddResponder', 'ResourceManager']
+        arguments: ['FormsFactory', 'ResourceFormResponder', 'ResourceManager']
 
     app.admin.http.forms.update:
         class: 'App\Action\Admin\Http\Forms\Edit'
-        arguments: [ 'FormsFactory', 'AddResponder', 'ResourceManager', 'FlashMessageManager', 'Router' ]
+        arguments: [ 'FormsFactory', 'ResourceFormResponder', 'ResourceManager', 'FlashMessageManager', 'Router' ]
+
+    app.admin.http.show.dashboard:
+        class: 'App\Action\Admin\Http\ShowDashboard'
+        arguments: ['DashboardResponder']

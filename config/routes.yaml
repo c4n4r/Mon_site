@@ -2,10 +2,18 @@
 #    path: /
 #    controller: App\Controller\DefaultController::index
 
-add_taxonomy:
+dashboard:
+  path: /admin/dashboard
+  controller: App\Action\Admin\Http\ShowDashboard
+
+add_resource:
   path: /admin/forms/{resource}/add
   controller: App\Action\Admin\Http\Forms\Add
 
-edit_taxonomy:
+edit_resource:
   path: /admin/forms/{resource}/edit/{id}
   controller: App\Action\Admin\Http\Forms\Edit
+
+delete_resource:
+  path: /admin/resource/{resource}/delete/{id}
+  controller: App\Action\Admin\Http\DeleteResource

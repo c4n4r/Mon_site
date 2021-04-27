@@ -3,7 +3,6 @@
 
 namespace App\Domain\Admin;
 
-
 use Doctrine\ORM\EntityManagerInterface;
 use Exception;
 use function ucfirst;
@@ -11,6 +10,12 @@ use function ucfirst;
 class ResourceManager
 {
 
+    public function __construct(private EntityManagerInterface $em){}
+    function newResource($resource) {
+        $this->em->persist($resource);
+        $this->em->flush();
+        return($resource);
+    }
     /**
      * @throws Exception
      */
@@ -24,16 +29,15 @@ class ResourceManager
         else throw(new Exception("no entity found for ${type} at id : ${id}"));
     }
 
-    public function __construct(private EntityManagerInterface $em){}
-    function newResource($resource) {
-        $this->em->persist($resource);
-        $this->em->flush();
-        return($resource);
-    }
     public function updateResource(object $resource): object
     {
         $this->em->persist($resource);
         $this->em->flush();
         return $resource;
+    }
+
+    public function deleteResource(object $resource)
+    {
+        $this->em->remove($resource);
     }
 }

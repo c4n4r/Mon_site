@@ -15,7 +15,7 @@ use Symfony\Component\HttpFoundation\Response;
 class Add
 {
 
-    public function __construct(private FormsFactoryInterface $formsManager,private ResourceFormResponder $responder, private ResourceManager $resourceManager){}
+    public function __construct(private FormsFactoryInterface $formsManager, private ResourceFormResponder $responder, private ResourceManager $resourceManager){}
 
     #[NoReturn] public function __invoke(Request $request, string $resource): Response
     {

@@ -7,8 +7,8 @@ namespace App\Action\Admin\Http\Forms;
 use App\Domain\Admin\ResourceManager;
 use App\Infrastructure\Flash\FlashMessageManagerInterface;
 use App\Infrastructure\Form\FormsFactoryInterface;
+use App\Responder\Admin\Http\Forms\Resource\ResourceFormResponder;
 use App\Responder\Admin\Http\Forms\Resource\ResourceFormViewModel;
-use App\Responder\TwigResponderInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\RouterInterface;
 use function intval;
@@ -17,7 +17,7 @@ class Edit
 {
 
     public function __construct(private FormsFactoryInterface $formsManager,
-                                private TwigResponderInterface $responder,
+                                private ResourceFormResponder $responder,
                                 private ResourceManager $resourceManager,
                                 private FlashMessageManagerInterface $flashMessageManager,
                                 private RouterInterface $router){}
