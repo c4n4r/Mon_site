@@ -103,7 +103,7 @@
             }
         },
         "compile": [
-            "php bin/console doctirne:database:create",
+            "php bin/console doctrine:database:create",
             "php bin/console doctrine:migration:migrate"
         ]
     },
