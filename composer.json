@@ -96,7 +96,16 @@
         "symfony": {
             "allow-contrib": false,
             "require": "5.2.*"
-        }
+        },
+        "paas": {
+            "engines": {
+                "composer": "2.x"
+            }
+        },
+        "compile": [
+            "php bin/console doctirne:database:create",
+            "php bin/console doctrine:migration:migrate"
+        ]
     },
     "description": ""
 }
