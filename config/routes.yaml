@@ -5,3 +5,7 @@
 add_taxonomy:
   path: /admin/forms/{resource}/add
   controller: App\Action\Admin\Http\Forms\Add
+
+edit_taxonomy:
+  path: /admin/forms/{resource}/edit/{name}
+  controller: App\Action\Admin\Http\Forms\Edit
